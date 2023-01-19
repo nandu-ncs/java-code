@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+<bean class="Calculator" id="calclass" init-method="executeFirst" destroy-method="executeBeforeDestroy">
+<property name="num1" value="10"></property>
+<property name="num2" value="20"></property>
+</bean>
+
+<bean class="Calculator" id="calclass1" init-method="executeFirst" destroy-method="executeBeforeDestroy">
+<constructor-arg type="int" value="5" index="0"></constructor-arg>
+<constructor-arg type="int" value="25" index="1"></constructor-arg>
+</bean>
+
+<bean class="Person" id="p" init-method="executeFirst" destroy-method="executeBeforeDestroy">
+<property name="pid" value="23"></property>
+<property name="pName" value="sgdsg"></property>
+<property name="paid" value="true"></property>
+<property name="salary" value="42432"></property>
+<property name="age" value="34"></property>
+<property name="calculator" ref="calclass"></property>
+</bean>
+
+<!-- <bean class="Employee" id="employee" init-method="executeFirst" destroy-method="executeBeforeDestroy" autowire="byType">
+<property name="pid" value="23"></property>
+<property name="pName" value="sgdsg"></property>
+<property name="paid" value="true"></property>
+<property name="salary" value="42432"></property>
+<property name="age" value="34"></property>
+</bean> -->
+
+<bean class="Question" id="question">
+<property name="id" value="11"></property>
+<property name="name" value="What is Java?"></property>
+<property name="answers">
+<list>
+<value>Java is an island</value>
+<value>Java is a Coffee</value>
+<value>Java is a programming language</value>
+<value>All of the above</value>
+</list>
+</property>
+<property name="answers1">
+<set>
+<value>Java is an island</value>
+<value>Java is a Coffee</value>
+<value>Java is a programming language</value>
+<value>All of the above</value>
+</set>
+</property>
+<property name="answers2">
+<map>
+<entry key="ans" value="Java is an island"></entry></entry>
+<entry key="ans" value="Java is a Coffee"></entry>
+<entry key="ans" value="Java is a programming language"></entry>
+<entry key="ans" value="All of the above"></entry>
+</map>
+</property>
+</bean>
+</beans>
